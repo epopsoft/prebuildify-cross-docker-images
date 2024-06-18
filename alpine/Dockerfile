@@ -2,7 +2,8 @@ FROM node:lts-alpine
 
 RUN addgroup -g 2000 travis && \
   adduser -u 2000 -G travis -s /bin/sh -D travis && \
-  apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python3 git && \
+  apk --no-cache add git g++ gcc libgcc libstdc++ linux-headers make cmake \
+    python3 python3-dev zlib-dev curl-dev && \
   ln -sf python3 /usr/bin/python && \
   python --version
 
